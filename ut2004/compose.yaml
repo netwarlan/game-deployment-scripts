@@ -1,0 +1,22 @@
+version: "3"
+
+services:
+  ut2004:
+    image: reflectivecode/ut2004
+    environment:
+      CONFIG_1: "[Engine.AccessControl];AdminPassword=netwar;[UWeb.WebServer];bEnabled=True"
+      UT2004_CMD: "CTF-FACECLASSIC?game=XGame.xCTFGame"
+    volumes:
+      - ./data:/home/ut2004
+    restart: "unless-stopped"
+    logging:
+      options:
+        max-size: "10m"
+        max-file: "3"
+    networks:
+      vlan:
+        ipv4_address: 10.10.10.124
+
+networks:
+  vlan:
+    external: true
