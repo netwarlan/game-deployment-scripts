@@ -15,7 +15,7 @@ services:
         max-file: "3"
     networks:
       vlan:
-        ipv4_address: 10.10.10.124
+        ipv4_address: 10.10.10.133
 
 networks:
   vlan:
