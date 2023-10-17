@@ -2,12 +2,10 @@ version: "3"
 
 services:
   ut2004:
-    image: reflectivecode/ut2004
-    environment:
-      CONFIG_1: "[Engine.AccessControl];AdminPassword=netwar;[UWeb.WebServer];bEnabled=True"
-      UT2004_CMD: "CTF-FACECLASSIC?game=XGame.xCTFGame"
+    image: lacledeslan/gamesvr-ut2004
+    command: "./ucc-bin server DM-Gael?game=XGame.xDeathMatch?AdminName=admin?AdminPassword=XXX -nohomedir -lanplay"
     volumes:
-      - ./data:/home/ut2004
+      - ./data/UT2004.ini:/app/System/UT2004.ini
     restart: "unless-stopped"
     logging:
       options:
